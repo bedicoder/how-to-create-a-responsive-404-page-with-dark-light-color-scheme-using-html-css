@@ -1,0 +1,396 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
+}
+
+:root {
+  --bg-color: #eeeeee;
+  --text-color: #0c1024;
+  --primary-color: #0c1024;
+  --secondary-color: #30e0a1;
+  --sidebar-bg-color: #30e0a1;
+  --sidebar-link-color: #0c1024;
+  --third-color: #15a06f;
+  --link-color: #444444;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Reusable Classes */
+
+.main-container {
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 120rem;
+  margin-inline: auto;
+}
+
+.header {
+  width: 100%;
+  height: 8rem;
+  background-color: var(--bg-color);
+  padding: 1em 2em;
+}
+
+.flex-sapce-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+}
+
+/* Start Header */
+
+.slide-toggle-btn {
+  display: none;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  border: 2px solid var(--primary-color);
+  color: var(--text-color);
+  font-size: 2rem;
+}
+
+.navigation .logo {
+  display: flex;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--primary-color);
+}
+
+.navigation .logo span {
+  display: inline-block;
+  color: var(--text-color);
+  margin-left: 0.125em;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 2em;
+}
+
+.navbar-nav .nav-item .nav-link {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--link-color);
+  transition: all 0.5s;
+}
+
+.navbar-nav .nav-item .nav-link.active {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: var(--primary-color);
+}
+
+.navigation .extra-nav {
+  gap: 2rem;
+}
+
+.extra-nav .extra-nav-item .nav-link {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.extra-nav-item .nav-link.border {
+  font-weight: 500;
+  color: var(--link-color);
+  border: 2px solid var(--third-color);
+  padding: 0.5em 1em;
+  border-radius: 1rem;
+}
+
+/* End of Header */
+
+/* Sidebar */
+
+.sidebar-nav {
+  width: 0%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 6rem;
+  text-align: center;
+  background-color: var(--sidebar-bg-color);
+  transition: all 0.5s;
+  overflow-x: hidden;
+  z-index: 1000;
+}
+
+.sidebar-nav .sidebar-link {
+  display: block;
+  padding: 1em 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--sidebar-link-color);
+  transition: all 0.5s;
+}
+
+.sidebar-nav .sidebar-link.active,
+.sidebar-nav .sidebar-link:focus {
+  font-weight: 700;
+}
+
+.sidebar-nav .sidebar-link.border {
+  padding: 0.75em 1.5em;
+  margin-top: 1em;
+  margin-right: 3em;
+  margin-left: 3em;
+  color: var(--sidebar-link-color);
+  border: 2px solid #e3e3e9;
+  border-radius: 1rem;
+  font-weight: 600;
+}
+
+.sidebar-nav .sidebar-link.border:last-of-type {
+  font-weight: 700;
+  border-color: #0c1024;
+}
+
+.close-slide-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 1.25rem;
+  font-size: 3rem;
+  color: var(--sidebar-link-color);
+  background-color: transparent;
+  z-index: 1000;
+  transition: all 0.5s;
+}
+
+.sidebar-nav .sidebar-link.hidden {
+  display: none;
+}
+
+/* End of Sidebar */
+
+/* Main */
+
+#main {
+  margin-top: 7em;
+  padding: 0 2em;
+}
+
+.section {
+  gap: 3rem;
+}
+
+.left-column {
+  width: 100%;
+}
+
+.left-column .heading {
+  font-size: 10rem;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 3px var(--third-color);
+}
+
+.left-column .subheading {
+  width: 80%;
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.left-column .action-link {
+  position: relative;
+  display: inline-block;
+  margin-top: 2em;
+  padding: 1em 0.25em;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
+  font-weight: 700;
+  overflow: hidden;
+  transition: all 0.35s;
+}
+
+.left-column .action-link::after {
+  position: absolute;
+  content: "";
+  display: block;
+  left: 1.25rem;
+  bottom: 1rem;
+  width: 100%;
+  height: 1rem;
+  background-color: var(--third-color);
+  z-index: -1;
+  transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
+}
+
+.left-column .action-link:hover::after {
+  left: 0;
+  bottom: -0.2rem;
+  width: 100%;
+  height: 100%;
+}
+
+.right-column {
+  width: 100%;
+}
+
+.right-column img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* End of Main */
+
+/* Footer */
+
+.footer {
+  margin-top: 2em;
+  padding: 2em;
+  background-color: var(--bg-color);
+}
+
+.footer-wrapper #copyright {
+  font-size: 1.3rem;
+  color: var(--link-color);
+}
+
+.footer-wrapper .social-links {
+  gap: 1.5rem;
+}
+
+.footer-wrapper .social-links li .nav-link {
+  font-size: 1.75rem;
+  color: var(--link-color);
+  transition: all 0.35s ease-in-out;
+}
+
+.footer-wrapper .social-links li .nav-link:hover {
+  color: var(--third-color);
+}
+
+/* End of Footer */
+
+/* ============= Media Queries ============= */
+
+@media screen and (max-width: 52em) {
+  .slide-toggle-btn {
+    display: block;
+  }
+  .navigation .navbar-nav {
+    display: none;
+  }
+  #main {
+    margin-top: 7em;
+    overflow-x: hidden;
+  }
+  .left-column .heading {
+    font-size: 7rem;
+  }
+  .left-column .subheading {
+    font-size: 2rem;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 40em) {
+  .d-grid {
+    grid-template-columns: 1fr;
+  }
+  #main {
+    margin-top: 6em;
+    overflow-x: hidden;
+  }
+  .left-column {
+    order: 2;
+    text-align: center;
+  }
+  .left-column .subheading {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 30em) {
+  .extra-nav {
+    display: none;
+  }
+  .navigation .logo {
+    order: 1;
+  }
+  .slide-toggle-btn {
+    order: 2;
+  }
+  .sidebar-nav .sidebar-link.sm-screen-visible {
+    display: block;
+  }
+}
+
+/* ================= Setting Custom Varaibles for Dark Color Scheme ====================*/
+
+/* ! The color scheme depends on your operating system color is => if the color theme of your system is dark you will see the website dark, else you will see the default website color theme (Light Theme) | My operting system is Dark color theme*/
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #0c1024;
+    --text-color: #f9fafb;
+    --primary-color: #30e0a1;
+    --secondary-color: #0c1024;
+    --sidebar-bg-color: #30e0a1;
+    --sidebar-link-color: #0c1024;
+    --third-color: #15a06f;
+    --link-color: #e3e3e9;
+  }
+}
